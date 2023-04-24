@@ -16,9 +16,9 @@ public class PostCallTest {
         request.header("Content-Type", "application/json");
 
         JSONObject json = new JSONObject();
-        json.put("id", 10);
+        json.put("id", 1);
         json.put("title", "RestAssured");
-        json.put("auther", "Sachin");
+        json.put("auther", "Avinash");
 
         request.body(json.toJSONString());
 

@@ -21,24 +21,33 @@ public class GetCallBDDTest {
     }
 
     @Test
-    public void postTest(){
-
-        given().when().post("http://localhost:3000/posts").then().assertThat().statusCode(200);
-
-        Response response = given().when().put("http://localhost:3000/posts");
-        Assert.assertEquals(response.statusCode(),200);
+    public void postTest() {
         JSONObject json = new JSONObject();
-        json.put("id", 8);
-        json.put("title", "RestAssured");
-        json.put("auther", "Tushar");
-        response.asPrettyString();
-        response.getTime();
+        json.put("id", 5);
+        json.put("title", "Restassured");
+        json.put("authar", "Ram");
+
+        given().header("Content-Type", "application/json").body(json.toJSONString()).
+                when().post("http://localhost:3000/posts/").
+                then().statusCode(201);
+    }
+    @Test
+    public void putPetTest(){
+
+        JSONObject json = new JSONObject();
+//        json.put("id", 1);
+        json.put("title", "Restassured");
+        json.put("authar", "Sachin");
+
+        given().header("Content-Type", "application/json").body(json.toJSONString()).
+                when().put("http://localhost:3000/posts/1").
+                then().statusCode(200);
     }
 
-    /*
-     * given()
-     * when()
-     * then()
-     * and()
-     * */
+    @Test
+    public void deletePetTest(){
+        given().header("Content-Type", "application/json").
+                when().put("http://localhost:3000/posts/1").
+                then().statusCode(200);
+    }
 }

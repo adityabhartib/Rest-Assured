@@ -10,23 +10,17 @@ import org.testng.annotations.Test;
 public class PutCallTest {
 
     @Test
-    public void modifyPetDetails() {
+    public void modifyDetails() {
 
         RequestSpecification request = RestAssured.given();
-        request.head("Content-Type", "application/json");
-        JSONObject json = new JSONObject();
-        json.put("id", "6");
-        json.put("title", "Restassured");
-        json.put("authar", "Avinash");
+        request.header("Content-Type", "application/json");
 
-        request.body(json.toJSONString());
-
-        Response response = request.put("http://localhost:3000/posts");
+        Response response = request.put("http://localhost:3000/posts/6");
         System.out.println("Status code: " + response.statusCode());
         System.out.println("Time:" + response.getTime());
         System.out.println("Response Body: " + response.asPrettyString());
 
-        Assert.assertEquals(response.statusCode(), 201);
+        Assert.assertEquals(response.statusCode(), 200);
 
     }
 }
