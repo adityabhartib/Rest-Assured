@@ -14,6 +14,10 @@ public class PutCallTest {
 
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
+        JSONObject json = new JSONObject();
+//        json.put("id", 1);
+        json.put("title", "RestAssured");
+        json.put("auther", "Avinash");
 
         Response response = request.put("http://localhost:3000/posts/6");
         System.out.println("Status code: " + response.statusCode());

@@ -15,7 +15,7 @@ public class PostCallTest {
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
 
-        JSONObject json = new JSONObject();
+         JSONObject json = new JSONObject();
         json.put("id", 1);
         json.put("title", "RestAssured");
         json.put("auther", "Avinash");
