@@ -25,7 +25,7 @@ public class GetCallBDDTest {
                 then().statusCode(201);
     }
     @Test
-    public void putPetTest(){
+    public void putTest(){
 
         JSONObject json = new JSONObject();
         json.put("title", "Restassured");
@@ -36,7 +36,7 @@ public class GetCallBDDTest {
                 then().statusCode(200);
     }
     @Test
-    public void patchPetTest(){
+    public void patchTest(){
 
         JSONObject json = new JSONObject();
         json.put("title", "Restassured");
@@ -48,7 +48,7 @@ public class GetCallBDDTest {
     }
 
     @Test
-    public void deletePetTest(){
+    public void deleteTest(){
         given().header("Content-Type", "application/json").
                 when().delete("http://localhost:3000/posts/5").
                 then().statusCode(200);
